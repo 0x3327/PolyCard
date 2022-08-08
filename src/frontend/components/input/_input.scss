@@ -1,0 +1,22 @@
+.input-wrap {
+    border-radius: 10px;
+    border: 1px solid white;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+
+    .input {
+        background: none;
+        border: none !important;
+        color: white;
+        width: 100% !important;
+        outline: none;
+    }
+
+    .unit {
+        margin-left: 10px;
+        font-size: 14px;
+    }
+}

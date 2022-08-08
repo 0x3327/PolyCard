@@ -1,0 +1,922 @@
+@font-face {
+  font-family: "Good times";
+  src: url("../assets/fonts/good_times.otf");
+}
+
+.logo .poly {
+  color: #bebebe;
+}
+
+.logo .card {
+  color: white;
+}
+
+.button {
+  border-radius: 20px;
+  border: none;
+  cursor: pointer;
+  padding: 20px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.button .icon {
+  margin-right: 20px;
+}
+
+.button * {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.button:hover {
+  opacity: 0.9;
+}
+
+.button.small {
+  height: 30px;
+}
+
+.button.full-size {
+  width: 100%;
+  font-size: 25px;
+  padding: 30px 20px;
+}
+
+@media (max-width: 480px) {
+  .button.full-size {
+    font-size: 16px;
+  }
+}
+
+.client-app-root .button {
+  background-color: #41074e;
+  color: white;
+}
+
+.store-app-root .button {
+  background-color: #07194e;
+  color: white;
+}
+
+.header {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  margin-bottom: 40px;
+}
+
+.header .logo-wrap {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.header .logo-wrap .back-link {
+  font-size: 12px;
+  margin-top: 5px;
+  cursor: pointer;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  opacity: 0.6;
+}
+
+.header .logo-wrap .back-link:hover {
+  opacity: 1;
+}
+
+.card-info {
+  background: #412946;
+  background: linear-gradient(315deg, #412946 0%, #672f74 49%, #29092f 100%);
+  border-radius: 20px;
+  padding: 20px;
+}
+
+.card-info .card-info-title, .card-info .contract-address {
+  opacity: 0.23;
+  font-size: 14px;
+}
+
+.card-info .currency {
+  opacity: 0.6;
+  font-size: 16px;
+  font-weight: 300;
+}
+
+.transaction-list {
+  border-radius: 15px;
+  border: none;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.transaction-list .transaction-list-header {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin-bottom: 10px;
+}
+
+.transaction-list .transaction-list-header span {
+  font-size: 14px;
+  opacity: 0.5;
+}
+
+.transaction-list .transaction-list-items .transaction {
+  cursor: pointer;
+  background-color: #662E7211;
+  margin-bottom: 10px;
+  border-radius: 20px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  padding: 15px 20px;
+  border: 1px solid #da84ef68;
+}
+
+.transaction-list .transaction-list-items .transaction:hover {
+  background-color: #662e7235;
+}
+
+.transaction-list .transaction-list-items .transaction.deposit {
+  border-color: lime;
+}
+
+.transaction-list .transaction-list-items .transaction.deposit .transaction-amount .amount {
+  color: lime;
+}
+
+.transaction-list .transaction-list-items .transaction .transaction-caption {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.transaction-list .transaction-list-items .transaction .transaction-caption .transaction-date {
+  font-size: 12px;
+  opacity: 0.5;
+  margin-bottom: 10px;
+}
+
+.transaction-list .transaction-list-items .transaction .transaction-amount .currency {
+  color: white;
+  opacity: 0.5;
+  font-size: 14px;
+  margin-left: 5px;
+}
+
+.transaction-list .transaction-list-items .transaction .transaction-amount .amount {
+  color: #D28BE2;
+  font-size: 14px;
+}
+
+.transaction-list .load-more {
+  text-align: center;
+  cursor: pointer;
+  color: #d28be2;
+  margin-top: 10px;
+  opacity: 0.7;
+  font-size: 14px;
+}
+
+.transaction-list .load-more:hover {
+  opacity: 1;
+}
+
+.input-wrap {
+  border-radius: 10px;
+  border: 1px solid white;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  padding: 20px;
+}
+
+.input-wrap .input {
+  background: none;
+  border: none !important;
+  color: white;
+  width: 100% !important;
+  outline: none;
+}
+
+.input-wrap .unit {
+  margin-left: 10px;
+  font-size: 14px;
+}
+
+.password-input-wrap {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.6);
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  z-index: 10;
+}
+
+.password-input-wrap .password-input {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  padding: 20px;
+  background-color: #2F1136;
+}
+
+.password-input-wrap .actions {
+  margin-top: 20px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.password-input-wrap .actions .button {
+  background-color: #41074e;
+}
+
+.client-app-root {
+  height: 100%;
+  width: 100%;
+  background: linear-gradient(135deg, #020024 0%, #2e0436 100%);
+}
+
+.client-app-root .gradient-wrap {
+  background-image: url("../assets/images/pattern.svg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  width: 100%;
+  height: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.store-app-root {
+  height: 100%;
+  width: 100%;
+  background: linear-gradient(135deg, #020024 0%, #140650 100%);
+}
+
+.store-app-root .gradient-wrap {
+  background-image: url("../assets/images/pattern.svg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  width: 100%;
+  height: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.client-init-screen {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  height: 100%;
+}
+
+.client-init-screen .login-options {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  margin-top: 20px;
+}
+
+.client-init-screen .login-options .button {
+  margin-top: 10px;
+}
+
+.client-scan-account section {
+  background-color: black;
+}
+
+.client-scan-account #qr-video {
+  width: 320px;
+  margin: 0 auto;
+  padding: 0 auto;
+}
+
+.client-create-pin .button {
+  margin-top: 20px;
+}
+
+.client-create-pin .pin-field-wrapper {
+  text-align: center;
+}
+
+.client-create-pin .pin-field-wrapper .input-wrap {
+  width: 100%;
+}
+
+.client-create-pin .pin-field-wrapper .button {
+  margin-left: 10px;
+}
+
+.client-enter-pin .pin-field {
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.client-enter-pin .pin-field input {
+  width: 50px;
+  height: 50px;
+  color: black;
+  text-align: center;
+}
+
+.client-enter-pin .button {
+  margin-top: 10px;
+}
+
+.client-enter-pin a {
+  margin-top: 30px;
+  font-size: 14px;
+  opacity: 0.5;
+}
+
+.client-home {
+  height: 100%;
+  width: 100%;
+}
+
+.client-home .card-info {
+  margin-bottom: 30px;
+}
+
+.client-home .transaction-list {
+  margin-top: 40px;
+}
+
+.client-scan-payment section {
+  background-color: black;
+}
+
+.client-scan-payment #qr-video {
+  width: 320px;
+  margin: 0 auto;
+  padding: 0 auto;
+}
+
+.client-payment-details .screen-title {
+  margin-bottom: 40px;
+}
+
+.client-payment-details section {
+  background-color: black;
+}
+
+.client-payment-details .authorization-wrap {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  width: 100%;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  margin-top: 30px;
+  padding: 20px;
+}
+
+.client-payment-details .authorization-wrap .confirmed-payment {
+  color: lime;
+}
+
+.client-payment-details .authorization-wrap .confirmed-payment .status-icon {
+  fill: lime;
+}
+
+.client-payment-details .authorization-wrap .pending-confirmation {
+  color: #B65BC7;
+  font-size: 18px;
+}
+
+.client-payment-details .authorization-wrap .status-info {
+  opacity: 0.6;
+  font-size: 14px;
+}
+
+.client-payment-details .authorization-wrap p {
+  font-size: 18px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.client-payment-details .authorization-wrap p .status-icon {
+  margin-right: 10px;
+}
+
+.client-payment-details .authorization-wrap .receipt-link {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin-top: 10px;
+  font-size: 14px;
+}
+
+.client-payment-receipt .qr-wrap {
+  position: relative;
+  margin: 20px 0;
+}
+
+.client-payment-receipt .qr-wrap .qr-code {
+  width: 110px;
+  cursor: pointer;
+}
+
+.client-payment-receipt .qr-wrap span {
+  font-size: 10px;
+  top: 60px;
+  opacity: 0.4;
+  position: absolute;
+  -webkit-transform: rotate(-90deg);
+          transform: rotate(-90deg);
+  left: 70px;
+  top: 50px;
+}
+
+.client-register-account .screen-title {
+  margin-bottom: 40px;
+}
+
+.client-register-account .input-wrap {
+  padding: 15px;
+}
+
+.client-user-profile .button {
+  margin-bottom: 20px;
+  padding: 20px;
+  font-size: 18px;
+}
+
+.store-init-screen {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  height: 100%;
+}
+
+.store-init-screen .subtitle {
+  font-size: 12px;
+  opacity: 0.5;
+}
+
+.store-init-screen .login-options {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  margin-top: 20px;
+}
+
+.store-init-screen .login-options .button {
+  margin-top: 10px;
+}
+
+.store-scan-api #qr-video {
+  width: 100%;
+}
+
+.store-init-screen {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  height: 100%;
+}
+
+.store-init-screen .subtitle {
+  font-size: 12px;
+  opacity: 0.5;
+}
+
+.store-init-screen .login-options {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  margin-top: 20px;
+}
+
+.store-init-screen .login-options .button {
+  margin-top: 10px;
+}
+
+.store-home-screen .payment-amount-input {
+  text-align: right;
+  font-size: 22px;
+}
+
+.store-home-screen .keyboard-panel {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+}
+
+.store-home-screen .keyboard-panel .button {
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+  min-width: 30%;
+  max-width: 30%;
+  margin-bottom: 20px;
+  padding: 20px;
+}
+
+.store-home-screen .keyboard-panel .zero-wrap {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  width: 100%;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.store-home-screen .qr-modal {
+  position: fixed;
+  left: 0;
+  top: 0;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  background-color: rgba(0, 0, 0, 0.651);
+  z-index: 1000;
+  height: 100vh;
+  width: 100vw;
+}
+
+.store-home-screen .qr-modal img {
+  width: 100%;
+  max-width: 600px;
+}
+
+.store-user-profile .button {
+  margin-bottom: 20px;
+  padding: 20px;
+  font-size: 18px;
+}
+
+* {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  font-family: "Good times";
+  color: white;
+}
+
+body,
+html {
+  margin: 0;
+  padding: 0;
+}
+
+a {
+  text-decoration: none;
+}
+
+.app {
+  height: 100vh;
+  width: 100vw;
+}
+
+.screen-title {
+  opacity: 0.5;
+  font-size: 18px;
+}
+
+.scrollbar-container {
+  width: 100%;
+}
+
+.info-field {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  margin-bottom: 40px;
+}
+
+.info-field .title {
+  font-size: 14px;
+  opacity: 0.5;
+  font-weight: 300;
+  margin-bottom: 10px;
+}
+
+.info-field .payment-amount {
+  font-size: 34px;
+}
+
+.info-field .payment-remaining-amount {
+  font-size: 24px;
+}
+
+.info-field .currency {
+  font-size: 14px;
+  opacity: 0.6;
+  font-weight: 300;
+  margin-left: 5px;
+}
+
+.info-field .caption {
+  margin-bottom: 10px;
+}
+
+.info-field .subcaption {
+  font-size: 14px;
+  opacity: 0.6;
+}
+
+.pin-field-wrapper {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.pin-field-wrapper .pin-field {
+  width: 300px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  padding: 10px;
+}
+
+.pin-field-wrapper .pin-field input,
+.pin-field-wrapper .pin-field select,
+.pin-field-wrapper .pin-field textarea {
+  width: 50px;
+  height: 50px;
+  color: white;
+  text-align: center;
+  border: 1px solid rgba(133, 133, 133, 0.5);
+  border-radius: 10px;
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+.app-wrapper {
+  width: 100%;
+  max-width: 600px;
+  padding: 20px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  margin: auto;
+  position: relative;
+  height: 100%;
+}
+
+select {
+  background: none;
+  border-radius: 20px;
+  padding: 10px 20px 10px 10px;
+}
+
+.qr-modal {
+  position: fixed;
+  left: 0;
+  top: 0;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  background-color: rgba(0, 0, 0, 0.651);
+  z-index: 1000;
+  height: 100vh;
+  width: 100vw;
+}
+
+.qr-modal img {
+  width: 100%;
+  max-width: 600px;
+}
+
+.small {
+  font-size: 12px;
+}
+/*# sourceMappingURL=App.css.map */

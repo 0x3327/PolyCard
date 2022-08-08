@@ -1,0 +1,21 @@
+.client-payment-receipt {
+    .qr-wrap {
+        position: relative;
+        margin: 20px 0;
+
+        .qr-code {
+            width: 110px;
+            cursor: pointer;
+        }
+
+        span {
+            font-size: 10px;
+            top: 60px;
+            opacity: 0.4;
+            position: absolute;
+            transform: rotate(-90deg);
+            left: 70px;
+            top: 50px;
+        }
+    }
+}

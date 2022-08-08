@@ -1,0 +1,131 @@
+@import "./variables";
+@import "../components/components";
+@import "../screens/screens";
+
+* {
+    box-sizing: border-box;
+    font-family: "Good times";
+    color: white;
+}
+
+body,
+html {
+    margin: 0;
+    padding: 0;
+}
+
+a {
+    text-decoration: none;
+}
+
+.app {
+    height: 100vh;
+    width: 100vw;
+}
+
+.screen-title {
+    opacity: 0.5;
+    font-size: 18px;
+}
+
+.scrollbar-container {
+    width: 100%;
+}
+
+.info-field {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 40px;
+    .title {
+        font-size: 14px;
+        opacity: 0.5;
+        font-weight: 300;
+        margin-bottom: 10px;
+    }
+
+    .payment-amount {
+        font-size: 34px;
+    }
+
+    .payment-remaining-amount {
+        font-size: 24px;
+    }
+
+    .currency {
+        font-size: 14px;
+        opacity: 0.6;
+        font-weight: 300;
+        margin-left: 5px;
+    }
+
+    .caption {
+        margin-bottom: 10px;
+    }
+
+    .subcaption {
+        font-size: 14px;
+        opacity: 0.6;
+    }
+}
+
+.pin-field-wrapper {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    .pin-field {
+        width: 300px;
+        display: flex;
+        justify-content: space-between;
+        padding: 10px;
+        input,
+        select,
+        textarea {
+            width: 50px;
+            height: 50px;
+            color: rgb(255, 255, 255);
+            text-align: center;
+            border: 1px solid rgba(133, 133, 133, 0.5);
+            border-radius: 10px;
+            background-color: rgba($color: #ffffff, $alpha: 0.1);
+        }
+    }
+}
+
+.app-wrapper {
+    width: 100%;
+    max-width: 600px;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    margin: auto;
+    position: relative;
+    height: 100%;
+}
+
+select {
+    background: none;
+    border-radius: 20px;
+    padding: 10px 20px 10px 10px;
+}
+
+.qr-modal {
+    position: fixed;
+    left: 0;
+    top: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(0, 0, 0, 0.651);
+    z-index: 1000;
+    height: 100vh;
+    width: 100vw;
+
+    img {
+        width: 100%;
+        max-width: 600px;
+    }
+}
+
+.small {
+    font-size: 12px;
+}

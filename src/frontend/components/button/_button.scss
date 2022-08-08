@@ -1,0 +1,53 @@
+.button {
+    border-radius: 20px;
+    border: none;
+    cursor: pointer;
+    padding: 20px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+
+    .icon {
+        margin-right: 20px;
+    }
+
+    * {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: center;
+    }
+
+    &:hover {
+        opacity: 0.9;
+    }
+
+    &.small {
+        height: 30px;
+    }
+
+    &.full-size {
+        width: 100%;
+        font-size: 25px;
+        padding: 30px 20px;
+
+        @media (max-width: 480px) {
+            font-size: 16px;
+        }
+    }
+}
+
+.client-app-root {
+    .button {
+        background-color: #41074e;
+        color: white;
+    }
+}
+
+.store-app-root {
+    .button {
+        background-color: #07194e;
+        color: white;
+    }
+}

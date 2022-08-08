@@ -1,0 +1,48 @@
+.store-home-screen {
+    .payment-amount-input {
+        text-align: right;
+        font-size: 22px;
+    }
+
+    .keyboard-panel {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        // gap: 20px;
+        flex-wrap: wrap;
+
+        .button {
+            flex: 1;
+            min-width: 30%;
+            max-width: 30%;
+            margin-bottom: 20px;
+            padding: 20px;
+        }
+
+        .zero-wrap {
+            display: flex;
+            width: 100%;
+            flex-direction: row;
+            justify-content: space-between;
+        }
+    }
+
+    .qr-modal {
+        position: fixed;
+        left: 0;
+        top: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background-color: rgba(0, 0, 0, 0.651);
+        z-index: 1000;
+        height: 100vh;
+        width: 100vw;
+
+        img {
+            width: 100%;
+            max-width: 600px;
+        }
+    }
+}

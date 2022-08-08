@@ -1,0 +1,17 @@
+.client-init-screen {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+
+    .login-options {
+        display: flex;
+        flex-direction: column;
+        margin-top: 20px;
+
+        .button {
+            margin-top: 10px;
+        }
+    }
+}

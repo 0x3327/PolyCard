@@ -1,0 +1,56 @@
+.client-payment-details {
+    .screen-title {
+        margin-bottom: 40px;
+    }
+
+    section {
+        background-color: black;
+    }
+
+    .authorization-wrap {
+        display: flex;
+        width: 100%;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        margin-top: 30px;
+        padding: 20px;
+
+        .confirmed-payment {
+            color: lime;
+
+            .status-icon {
+                fill: lime;
+            }
+        }
+
+        .pending-confirmation {
+            color: #B65BC7;
+            font-size: 18px;
+        }
+
+        .status-info {
+            opacity: 0.6;
+            font-size: 14px;
+        }
+
+        p {
+            font-size: 18px;
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+
+            .status-icon {
+                margin-right: 10px;
+            }
+        }
+
+        .receipt-link {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            margin-top: 10px;
+            font-size: 14px;
+        }
+    }
+}

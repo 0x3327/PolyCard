@@ -1,0 +1,25 @@
+.header {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin-bottom: 40px;
+
+    .logo-wrap {
+        display: flex;
+        flex-direction: column;
+
+        .back-link {
+            font-size: 12px;
+            margin-top: 5px;
+            cursor: pointer;
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            opacity: 0.6;
+
+            &:hover {
+                opacity: 1;
+            }
+        }
+    }
+}
