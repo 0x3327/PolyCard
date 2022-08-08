@@ -1,6 +1,11 @@
 # See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
 
+# DB
+*.db
+
 # CSS
+*.css
+*.map
 src/frontend/*.map.css
 src/frontend/*.css
 
