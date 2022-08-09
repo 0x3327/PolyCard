@@ -24,23 +24,58 @@ function getPurchase(purchaseID, callback) {
     db.get('SELECT * FROM payments WHERE purchaseId = ?', [purchaseID], callback);
 }
 
-function addPurchaseData(purchaseID, accountAddress, cardAddress, signature, callback) {
-    db.run(`UPDATE payments SET 
+async function addPurchaseData(purchaseID, accountAddress, cardAddress, signature, status) {
+    return new Promise((resolve, reject) => {
+        db.run(`UPDATE payments SET 
             accountAddress = ?,
             cardAddress = ?,
-            signature = ?
+            signature = ?,
+            status = ?
             WHERE purchaseId = ?`,
-        [
-            accountAddress,
-            cardAddress,
-            signature,
-            purchaseID,
-        ], callback);
+            [
+                accountAddress,
+                cardAddress,
+                signature,
+                status,
+                purchaseID,
+            ],
+            (result, error) => {
+                if (error) {
+                    reject(error);
+                } else {
+                    resolve(result);
+                }
+            }
+        );
+    })
 }
+
+async function updatePurchaseStatus(purchaseID, status) {
+    return new Promise((resolve, reject) => {
+        db.run(`UPDATE payments SET 
+            status = ?
+            WHERE purchaseId = ?`,
+            [
+                status,
+                purchaseID,
+            ],
+            (result, error) => {
+                if (error) {
+                    reject(error);
+                } else {
+                    resolve(result);
+                }
+            }
+        );
+    })
+}
+
 
 module.exports = {
     getUsers,
     getServices,
     createPurchase,
     getPurchase,
+    addPurchaseData,
+    updatePurchaseStatus
 }
