@@ -27,9 +27,12 @@ export const ClientUserProfile = () => {
     }
 
     const resetAccount = () => {
-        clearTransactions();
-        removeAccount();
-        navigate('/client/init');
+        const res = window.confirm('Are you sure you want to reset the your account?')
+        if (res) {
+            clearTransactions();
+            removeAccount();
+            navigate('/client/init');
+        }
     }
 
     const logoutUser = () => {

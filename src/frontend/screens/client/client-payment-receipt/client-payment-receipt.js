@@ -1,16 +1,24 @@
 import React, { useContext, useEffect, useState } from "react";
 import QrScanner from "qr-scanner";
+import bytes32 from 'bytes32';
 import { useNavigate, useParams } from "react-router-dom";
 import { Header } from "../../../components/header/header";
 import { Button } from "../../../components/button/button";
 import { TransactionContext } from "../../../contexts/transaction-context";
-import bytes32 from 'bytes32';
+import QrCodeIcon from "../../../assets/images/qr-code-thin-white.svg";
+import { LockContext } from "../../../contexts/lock-context";
+import { QRContext } from "../../../contexts/qr-context";
+import { toast } from "react-toastify";
 
 export const ClientPaymentReceipt = () => {
     const navigate = useNavigate();
     const { getTransaction, transactions } = useContext(TransactionContext)
+    const { generateReceiptCode } = useContext(QRContext);
+    const { requestPassword } = useContext(LockContext);
+
     const { paymentId } = useParams();
     const [isQrVisible, setIsQrVisible] = useState(false);
+    const [qrCode, setQrCode] = useState(null);
     const [payment, setPayment] = useState(null);
 
     useEffect(() => {
@@ -19,11 +27,23 @@ export const ClientPaymentReceipt = () => {
         }
     }, [transactions])
 
+    const showCode = () => {
+        requestPassword(async (key) => {
+            try {
+                const qrValue = await generateReceiptCode(key, paymentId);
+                setQrCode(qrValue);
+                setIsQrVisible(true);
+            } catch (err) {
+                toast.error('Payment failed');
+            }
+        })
+    }
+
     return (
             <div className="client-payment-receipt">
-                { isQrVisible &&
-                    <div className="qr-modal" onClick={() => setIsQrVisible(false)}>
-                        <img className="qr-code" src="https://play-lh.googleusercontent.com/ufwUy4SGVTqCs8fcp6Ajxfpae0bNImN1Rq2cXUjWI7jlmNMCsXgQE5C3yUEzBu5Gadkz"></img>        
+                { isQrVisible && qrCode &&
+                    <div className="qr-modal" onClick={() => { setQrCode(null); setIsQrVisible(false) }}>
+                        <img className="qr-code" src={qrCode}></img>        
                     </div>
                 }
                 <Header backPath="/client/home" />
@@ -33,10 +53,10 @@ export const ClientPaymentReceipt = () => {
                         <div className="qr-wrap">
                             <img 
                                 className="qr-code" 
-                                src="https://play-lh.googleusercontent.com/ufwUy4SGVTqCs8fcp6Ajxfpae0bNImN1Rq2cXUjWI7jlmNMCsXgQE5C3yUEzBu5Gadkz"
-                                onClick={() => setIsQrVisible(true)}
+                                src={QrCodeIcon}
+                                onClick={() => showCode()}
                             />
-                            <span>Click to zoom in</span>
+                            <span>Click to show</span>
                         </div>
                         <div className="info-field">
                             <span className="title">Payment ID</span>

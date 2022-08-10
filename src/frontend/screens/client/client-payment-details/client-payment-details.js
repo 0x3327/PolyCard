@@ -41,10 +41,12 @@ export const ClientPaymentDetails = () => {
     const authorizePayment = () => {
         requestPassword(async (key) => {
             try {
-                const signature = await signPayment(key, currentTransaction);
                 setIsBusy(true);
+                await signPayment(key, currentTransaction);
             } catch (err) {
                 toast.error('Payment failed');
+            } finally {
+                setIsBusy(false);
             }
         })
         
