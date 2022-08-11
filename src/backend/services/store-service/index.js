@@ -132,7 +132,7 @@ app.post('/approve_purchase', (req, res) => {
         const { serviceId: serviceID, price } = result;
         const storeAddress = Web3Service.getStoreAddress();
 
-        // TODO construct hash from given values
+        // Construct hash from given values
         const hash = utils.createPaymentSignatureHash(purchaseID, serviceID, price, storeAddress);
 
         const recoveredAddress = ethers.utils.verifyMessage(ethers.utils.arrayify(hash), signature);
@@ -140,13 +140,21 @@ app.post('/approve_purchase', (req, res) => {
         console.log(`Signer address: ${cardAddress}`);
 
         try {
-            // DBService.addPurchaseData(purchaseID, accountAddress, cardAddress, signature, (error, result) => {});
+            console.log('Adding purchase data to the database');
+            await DBService.addPurchaseData(
+                purchaseID, accountAddress,
+                cardAddress, signature, 'Pending').then(async (result) => {
+                    console.log(`Received db response ${result}`);
 
-            console.log(accountAddress, price, purchaseID, serviceID, signature);
-            await Web3Service.issueService(accountAddress, price, purchaseID, serviceID, signature);
-            res.send('We\'ll process the purchase shortly...');
+                    console.log('Sending transaction to the blockchain');
+                    await Web3Service.issueService(accountAddress, price, purchaseID, serviceID, signature);
+                    console.log('Transaction sent');
+                    res.send('We\'ll process the purchase shortly...');
+                    await DBService.updatePurchaseStatus(purchaseID, 'Completed');
+                }).catch((error) => { throw Error(error) });
         } catch (error) {
             console.error(error);
+            await DBService.updatePurchaseStatus(purchaseID, 'Failed');
             res.status(500);
             res.send(`Failed to issue service ${serviceID}\n${error}`);
         }
