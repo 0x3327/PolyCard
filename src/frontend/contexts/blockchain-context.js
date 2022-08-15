@@ -66,7 +66,7 @@ const BlockchainContextProvider = ({ children }) => {
         if (metamaskProvider != null) {
             provider.current = metamaskProvider;
         } else {
-            provider.current = new ethers.providers.JsonRpcProvider('https://polygon-rpc.com/');
+            provider.current = new ethers.providers.JsonRpcProvider('https://rpc-mumbai.matic.today/');
 
         }
 
