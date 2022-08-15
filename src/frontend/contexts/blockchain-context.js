@@ -18,7 +18,7 @@ const BlockchainContextProvider = ({ children }) => {
     const [contractsLoaded, setContractsLoaded] = useState(false);
 
     const isBusy = useRef(false);
-    
+
     const provider = useRef(null);
     const signer = useRef(null);
 
@@ -62,16 +62,16 @@ const BlockchainContextProvider = ({ children }) => {
             await window.ethereum.enable();
             metamaskProvider = new ethers.providers.Web3Provider(window.ethereum);
         }
-        
+
         if (metamaskProvider != null) {
-            provider.current = metamaskProvider;            
+            provider.current = metamaskProvider;
         } else {
-            provider.current = new ethers.providers.JsonRpcProvider('http://localhost:8545');
-            
+            provider.current = new ethers.providers.JsonRpcProvider('https://polygon-rpc.com/');
+
         }
 
         await provider.current.getBlockNumber();
-        
+
 
         const { chainId } = await provider.current.getNetwork();
         if (SUPPORTED_CHAIN_ID.includes(chainId) === false) {
@@ -118,7 +118,7 @@ const BlockchainContextProvider = ({ children }) => {
         const parsedBalance = bnToEth(bal);
         setBalance(parseFloat(parsedBalance).toFixed(2));
     }
-    
+
     const fetchAccountEvents = async (address, fromBlockNum, listener) => {
         const toBlockNum = (await provider.current.getBlockNumber());
         console.log(toBlockNum);
