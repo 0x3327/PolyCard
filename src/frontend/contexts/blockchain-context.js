@@ -66,7 +66,7 @@ const BlockchainContextProvider = ({ children }) => {
         if (metamaskProvider != null) {
             provider.current = metamaskProvider;
         } else {
-            provider.current = new ethers.providers.JsonRpcProvider('https://rpc-mumbai.matic.today/');
+            provider.current = new ethers.providers.JsonRpcProvider('https://matic-mumbai.chainstacklabs.com/');
 
         }
 
