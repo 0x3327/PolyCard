@@ -1,19 +1,17 @@
-import React, { createRef, useContext, useEffect, useRef, useState } from "react";
+import React, { useContext } from "react";
 // import { QrReader } from 'react-qr-reader';
 // import QrReader from 'react-qr-scanner'
 import { Base64 } from 'js-base64';
-import QrReader from 'modern-react-qr-reader'
 
 
-import { useLocation, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { Header } from "../../../components/header/header";
 import { TransactionContext } from "../../../contexts/transaction-context";
+import CustomQrReader from "../../../components/qr-reader/qr-reader";
 
 export const ClientScanPayment = () => {
     const { setCurrentTransactionData } = useContext(TransactionContext);
-    const [data, setData] = useState(null);
     const navigate = useNavigate();
-    const location = useLocation();
 
     const checkCode = async (code) => {
         try {
@@ -24,7 +22,7 @@ export const ClientScanPayment = () => {
             if (success) {
                 navigate('/client/payment-details');
             }
-        } catch(err) { return; }
+        } catch (err) { return; }
     }
 
     return (
@@ -32,11 +30,10 @@ export const ClientScanPayment = () => {
             <Header backPath="/client/home" />
             <h2 className="screen-title">Scan payment code</h2>
 
-        <QrReader
-          onScan={(res) => res != null && checkCode(res)}
-          facingmode="environment"
-        />
-        {/* <p>{this.state.result}</p> */}
+            <CustomQrReader
+                onScan={(res) => res != null && checkCode(res)}
+            />
+            {/* <p>{this.state.result}</p> */}
         </div>
     );
 };

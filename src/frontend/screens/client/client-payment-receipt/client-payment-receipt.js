@@ -1,5 +1,4 @@
 import React, { useContext, useEffect, useState } from "react";
-import QrScanner from "qr-scanner";
 import bytes32 from 'bytes32';
 import { useNavigate, useParams } from "react-router-dom";
 import { Header } from "../../../components/header/header";
@@ -40,52 +39,52 @@ export const ClientPaymentReceipt = () => {
     }
 
     return (
-            <div className="client-payment-receipt">
-                { isQrVisible && qrCode &&
-                    <div className="qr-modal" onClick={() => { setQrCode(null); setIsQrVisible(false) }}>
-                        <img className="qr-code" src={qrCode}></img>        
+        <div className="client-payment-receipt">
+            {isQrVisible && qrCode &&
+                <div className="qr-modal" onClick={() => { setQrCode(null); setIsQrVisible(false) }}>
+                    <img className="qr-code" src={qrCode}></img>
+                </div>
+            }
+            <Header backPath="/client/home" />
+            {payment ?
+                <>
+                    <h2 className="screen-title">Payment Receipt</h2>
+                    <div className="qr-wrap">
+                        <img
+                            className="qr-code"
+                            src={QrCodeIcon}
+                            onClick={() => showCode()}
+                        />
+                        <span>Click to show</span>
                     </div>
-                }
-                <Header backPath="/client/home" />
-                { payment ?
-                    <>
-                        <h2 className="screen-title">Payment Receipt</h2>
-                        <div className="qr-wrap">
-                            <img 
-                                className="qr-code" 
-                                src={QrCodeIcon}
-                                onClick={() => showCode()}
-                            />
-                            <span>Click to show</span>
-                        </div>
-                        <div className="info-field">
-                            <span className="title">Payment ID</span>
-                            <span className="caption small">{ paymentId && `${paymentId.slice(0,10)}...${paymentId.slice(50, 100)}` }</span>
-                        </div>
-                        <div className="info-field">
-                            <span className="title">AMOUNT</span>
-                            <span>
-                                <span className="payment-amount">{ payment.amount }</span>
-                                <span className="currency">MATIC</span>
-                            </span>
-                        </div>
-                        <div className="info-field">
-                            <span className="title">Seller</span>
-                            <span className="caption">{ payment.receiver == '0x0000000000000000000000000000000000000000000000000000000000000000' ? 'My account' : bytes32({ input: payment.receiver })}</span>
-                            <span className="subcaption">{ payment.receiver.slice(0, 10) }...{ payment.receiver.slice(55, 100) }</span>
-                        </div>
-                        <div className="info-field">
-                            <span className="title">Service</span>
-                            <span className="caption">{ payment.serviceID == '0x0000000000000000000000000000000000000000000000000000000000000000' ? 'Deposit' : bytes32({ input: payment.serviceID })}</span>
-                            <span className="subcaption">{ payment.serviceID.slice(0, 10) }...{ payment.serviceID.slice(55, 100) }</span>
-                        </div>
-                        <div className="info-field">
-                            <span className="title">Timestamp</span>
-                            <span className="caption">{ payment.date}</span>
-                        </div>
-                    </>
+                    <div className="info-field">
+                        <span className="title">Payment ID</span>
+                        <span className="caption small">{paymentId && `${paymentId.slice(0, 10)}...${paymentId.slice(50, 100)}`}</span>
+                    </div>
+                    <div className="info-field">
+                        <span className="title">AMOUNT</span>
+                        <span>
+                            <span className="payment-amount">{payment.amount}</span>
+                            <span className="currency">MATIC</span>
+                        </span>
+                    </div>
+                    <div className="info-field">
+                        <span className="title">Seller</span>
+                        <span className="caption">{payment.receiver == '0x0000000000000000000000000000000000000000000000000000000000000000' ? 'My account' : bytes32({ input: payment.receiver })}</span>
+                        <span className="subcaption">{payment.receiver.slice(0, 10)}...{payment.receiver.slice(55, 100)}</span>
+                    </div>
+                    <div className="info-field">
+                        <span className="title">Service</span>
+                        <span className="caption">{payment.serviceID == '0x0000000000000000000000000000000000000000000000000000000000000000' ? 'Deposit' : bytes32({ input: payment.serviceID })}</span>
+                        <span className="subcaption">{payment.serviceID.slice(0, 10)}...{payment.serviceID.slice(55, 100)}</span>
+                    </div>
+                    <div className="info-field">
+                        <span className="title">Timestamp</span>
+                        <span className="caption">{payment.date}</span>
+                    </div>
+                </>
                 :
-                    <p>Loading...</p>
+                <p>Loading...</p>
             }
         </div>
     );
