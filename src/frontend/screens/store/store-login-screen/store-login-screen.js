@@ -46,20 +46,20 @@ export const StoreLoginScreen = () => {
 
     return (
         <div className="store-login-screen">
-            <Header showProfile={false}/>
+            <Header showProfile={false} />
 
             <div className="login-wrap">
                 <div className="info-field">
                     <p className="title">API</p>
-                    <Input 
+                    <Input
                         inputRef={apiInputRef}
-                        type="text" 
-                        defaultValue="http://localhost:8081"
+                        type="text"
+                        defaultValue="https://polycard.3327.io/api"
                     />
                 </div>
                 <div className="info-field">
                     <p className="title">Username</p>
-                    <Input 
+                    <Input
                         inputRef={usernameInputRef}
                         type="text"
                         defaultValue="admin"
@@ -67,13 +67,13 @@ export const StoreLoginScreen = () => {
                 </div>
                 <div className="info-field">
                     <p className="title">Pasword</p>
-                    <Input 
+                    <Input
                         inputRef={passwordInputRef}
                         type="password"
                         defaultValue="admin"
                     />
                 </div>
-                <Button onClick={() => storeLogin()} type="full-size" title="Login"/>
+                <Button onClick={() => storeLogin()} type="full-size" title="Login" />
             </div>
         </div>
     )

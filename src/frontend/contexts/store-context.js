@@ -14,6 +14,7 @@ const StoreContextProvider = ({ children }) => {
     const login = async (api, username, password) => {
         try {
             const jwt = await axios.post(`${api}/login`, { username, password });
+            console.log(jwt);
             setApi(api);
             setJWT(jwt.data.token);
 
