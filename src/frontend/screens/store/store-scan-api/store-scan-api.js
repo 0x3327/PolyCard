@@ -1,7 +1,7 @@
-import React, { useState } from 'react';
-import QrReader from 'modern-react-qr-reader'
+import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Header } from '../../../components/header/header';
+import CustomQrReader from '../../../components/qr-reader/qr-reader';
 
 export const StoreScanApi = () => {
     const navigate = useNavigate();
@@ -12,13 +12,12 @@ export const StoreScanApi = () => {
 
     return (
         <div className="store-scan-api">
-            <Header backPath="/store/init" showProfile={false}/>
+            <Header backPath="/store/init" showProfile={false} />
             <h2 className="screen-title">Scan api code</h2>
 
-        <QrReader
-          onScan={(res) => res != null && checkCode(res)}
-          facingmode="environment"
-        />
+            <CustomQrReader
+                onScan={(res) => res != null && checkCode(res)}
+            />
         </div>
     );
 }
