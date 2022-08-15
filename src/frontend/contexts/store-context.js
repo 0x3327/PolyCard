@@ -14,7 +14,6 @@ const StoreContextProvider = ({ children }) => {
     const login = async (api, username, password) => {
         try {
             const jwt = await axios.post(`${api}/login`, { username, password });
-            console.log(jwt);
             setApi(api);
             setJWT(jwt.data.token);
 
@@ -41,7 +40,6 @@ const StoreContextProvider = ({ children }) => {
                     'Authorization': 'Bearer ' + jwt,
                 }
             });
-            console.log(res.data);
             const { purchaseID } = res.data;
 
             const code = await generateQR(api, purchaseID, serviceId, price);

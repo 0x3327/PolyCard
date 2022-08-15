@@ -20,7 +20,7 @@ const UserContextProvider = ({ children }) => {
 
     const tryInit = async () => {
         if (cookies.account != null && accountId == null && provider != null) {
-            const { 
+            const {
                 accountId: storedAccountId,
                 encryptedTransactionKey: storedEncryptedTransactionKey,
                 keyHash,
@@ -46,11 +46,11 @@ const UserContextProvider = ({ children }) => {
             console.log(transactionKey);
             initContractHandlers(accountId);
             initAccount(transactionKey.split('0x')[1], accountId, blockNum);
-            toast.update(toastId, {render: 'Account created', type: toast.TYPE.SUCCESS, autoClose: 2000, isLoading: false });
+            toast.update(toastId, { render: 'Account created', type: toast.TYPE.SUCCESS, autoClose: 2000, isLoading: false });
             return true;
         } catch (err) {
             console.log(err);
-            toast.update(toastId, {render: 'Failed to create account, check your balance', type: toast.TYPE.ERROR, autoClose: 2000, isLoading: false });
+            toast.update(toastId, { render: 'Failed to create account, check your balance', type: toast.TYPE.ERROR, autoClose: 2000, isLoading: false });
             return false;
         }
     }
@@ -67,7 +67,6 @@ const UserContextProvider = ({ children }) => {
     }
 
     const isPasswordValid = (password) => {
-        console.log(encryptedTransactionKey, password);
         const transactionKey = utils.aesDecryptKey(encryptedTransactionKey, password);
         if (utils.sha3(transactionKey) != keyHash) {
             return false;
@@ -120,35 +119,35 @@ const UserContextProvider = ({ children }) => {
         const walletAddress = await wallet.getAddress();
 
         return axios.post(`${api}/approve_purchase`, {
-            purchaseID: payment.transactionId, 
-            cardAddress: walletAddress, 
-            accountAddress: accountId, 
+            purchaseID: payment.transactionId,
+            cardAddress: walletAddress,
+            accountAddress: accountId,
             signature,
         });
     }
 
     useEffect(() => {
         if (provider != null) {
-            tryInit();    
+            tryInit();
         }
     }, [provider]);
 
     return (
         <UserContext.Provider value={
-        { 
-            encryptedTransactionKey, 
-            accountId, 
-            keyHash,
-            blockNumber,
-            isPasswordValid, 
-            getTransactionKey, 
-            initAccount, 
-            setPassword,
-            removeAccount,
-            createAccount,
-            signPayment,
-        }}>
-            { children }
+            {
+                encryptedTransactionKey,
+                accountId,
+                keyHash,
+                blockNumber,
+                isPasswordValid,
+                getTransactionKey,
+                initAccount,
+                setPassword,
+                removeAccount,
+                createAccount,
+                signPayment,
+            }}>
+            {children}
         </UserContext.Provider>
     )
 }

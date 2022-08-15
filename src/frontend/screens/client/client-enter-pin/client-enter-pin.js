@@ -26,7 +26,6 @@ export const ClientEnterPin = () => {
 
     const login = () => {
         const password = passwordRef.current.value;
-        console.log(password);
 
         if (!isPasswordValid(password)) {
             toast.error('Incorrect password');
@@ -38,14 +37,14 @@ export const ClientEnterPin = () => {
 
     return (
         <div className="client-enter-pin">
-            <Header backPath="/client/init" showProfile={false}/>
-            
+            <Header backPath="/client/init" showProfile={false} />
+
             <div className="pin-field-wrapper">
-            <p>Enter password</p>
+                <p>Enter password</p>
                 <div className="pin-field">
-                    <Input type="password" inputRef={passwordRef} placeholder="password"/>
+                    <Input type="password" inputRef={passwordRef} placeholder="password" />
                 </div>
-                <Button title="Login" onClick={() => login()}/>
+                <Button title="Login" onClick={() => login()} />
                 <a href="#" onClick={() => resetAccount()}>Reset account</a>
             </div>
         </div>

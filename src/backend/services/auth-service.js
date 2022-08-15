@@ -8,13 +8,10 @@ const AuthService = {
     },
 
     securePassword: async (_password) => {
-        console.log(`ENV variable: ${process.env.PASSWORD_ROUNDS}`);
         const rounds = parseInt(process.env.PASSWORD_ROUNDS);
         const salt = await bcrypt.genSalt(rounds);
-        console.log(`Calculated salt ${salt}`);
 
         const hash = await AuthService.calculatePasswordHash(_password, salt);
-        console.log(`Calculated hash ${hash}`);
 
         return { hash, rounds, salt }
     },
