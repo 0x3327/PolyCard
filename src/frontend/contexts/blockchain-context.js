@@ -9,7 +9,7 @@ import { toast } from "react-toastify";
 export const BlockchainContext = createContext();
 
 // Constants
-const SUPPORTED_CHAIN_ID = [80001, 1337];
+const SUPPORTED_CHAIN_ID = [80001, 1337, 137];
 
 const BlockchainContextProvider = ({ children }) => {
     const [address, setAddress] = useState(null);
