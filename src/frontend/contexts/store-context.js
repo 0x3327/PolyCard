@@ -52,7 +52,7 @@ const StoreContextProvider = ({ children }) => {
     }
 
     return (
-        <StoreContext.Provider value={{ login, services, selectedService, setSelectedService, generatePaymentCode }}>
+        <StoreContext.Provider value={{ login, services, selectedService, setSelectedService, generatePaymentCode, jwt }}>
             {children}
         </StoreContext.Provider>
     )
