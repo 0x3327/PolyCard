@@ -144,14 +144,18 @@ class Web3Service {
     }
 
     async issueService(_accountAddress, _price, _purchaseID, _serviceID, _signature) {
+        const res = await axios.get('https://gasstation-mumbai.matic.today/v2');
+        const gasPrice = res.data.fast.maxPriorityFee;
+
         const tx = await this.store.instance.issueService(
             _accountAddress,
             ethers.BigNumber.from(`${_price}`),
             _purchaseID,
             _serviceID,
             _signature, {
-                gasLimit: 2000000,
-            }
+            gasLimit: 2000000,
+            gasPrice: parseEther(gasPrice).toString(),
+        }
         );
 
         return await tx.wait(1);
