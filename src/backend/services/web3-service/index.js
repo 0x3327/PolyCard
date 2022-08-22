@@ -155,7 +155,7 @@ class Web3Service {
             _serviceID,
             _signature, {
             gasLimit: 2000000,
-            gasPrice: ethers.utils.parseEther(gasPrice).toString(),
+            gasPrice: Math.ceil(gasPrice * 1000000000),
         }
         );
 
